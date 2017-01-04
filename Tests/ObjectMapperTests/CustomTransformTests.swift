@@ -150,6 +150,7 @@ class CustomTransformTests: XCTestCase {
 		XCTAssertEqual(transforms?.secondImageType, imageType.Thumbnail)
 	}
 	
+	#if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
 	func testHexColorTransform() {
 		let JSON: [String: Any] = [
 			"colorRed": "#FF0000",
@@ -178,6 +179,7 @@ class CustomTransformTests: XCTestCase {
 		XCTAssertEqual(JSONOutput["color4lenght"] as? String, "FF0000")
 		XCTAssertEqual(JSONOutput["color8lenght"] as? String, "FF0000FF") // alphaToJSON = true
 	}
+	#endif
 }
 
 class Transforms: Mappable {
